@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'Config/InitializeHive.dart';
+import 'Models/CourseModel.dart';
 import 'Views/LoginPage.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Hive.initFlutter();
+  Hive.registerAdapter(CourseModelAdapter()); // تأكد من تسجيل المودل
+  await Hive.openBox<CourseModel>('coursesBox'); // افتح الصندوق
   await inilizeHive();
   await Future.delayed(Duration(seconds: 10));
 

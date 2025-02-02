@@ -62,7 +62,7 @@ class CourseController extends GetxController {
   }
 
   // إضافة كورس
-  void addCourse({
+  Future<void> addCourse({
     required String title,
     required String overview,
     required String subject,
