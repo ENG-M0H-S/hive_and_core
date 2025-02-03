@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import '../Models/CourseModel.dart';
-import '../Models/CourseModelAdapter.dart';
+import '../Models/CourseModelAdapter.dart' as prifix;
 
 inilizeHive()async{
   await Hive.initFlutter(); // Initialize Hive

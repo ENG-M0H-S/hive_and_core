@@ -10,11 +10,11 @@ import 'Views/LoginPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  Hive.registerAdapter(CourseModelAdapter()); // تأكد من تسجيل المودل
-  await Hive.openBox<CourseModel>('coursesBox'); // افتح الصندوق
-  await inilizeHive();
-  await Future.delayed(Duration(seconds: 10));
+  // await Hive.initFlutter();
+  // Hive.registerAdapter(CourseModelAdapter()); // تسجيل المودل
+  // await Hive.openBox<CourseModel>('coursesBox');
+  // await inilizeHive();
+  // await Future.delayed(Duration(seconds: 10));
 
   runApp(MyApp());
 }
@@ -31,33 +31,33 @@ class MyApp extends StatelessWidget {
 }
 
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-FlutterLocalNotificationsPlugin();
-
-void initializeNotifications() async {
-  const AndroidInitializationSettings initializationSettingsAndroid =
-  AndroidInitializationSettings('@mipmap/ic_launcher');
-
-  const DarwinInitializationSettings initializationSettingsIOS =
-  DarwinInitializationSettings(
-    requestSoundPermission: false,
-    requestBadgePermission: false,
-    requestAlertPermission: false,
-  );
-
-  const InitializationSettings initializationSettings = InitializationSettings(
-    android: initializationSettingsAndroid,
-    iOS: initializationSettingsIOS,
-  );
-
-  await flutterLocalNotificationsPlugin.initialize(
-    initializationSettings,
-    onDidReceiveNotificationResponse: (NotificationResponse response) {
-      // التعامل مع النقر على الإشعار
-      print('Notification clicked: ${response.payload}');
-    },
-  );
-}
+// final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+// FlutterLocalNotificationsPlugin();
+//
+// void initializeNotifications() async {
+//   const AndroidInitializationSettings initializationSettingsAndroid =
+//   AndroidInitializationSettings('@mipmap/ic_launcher');
+//
+//   const DarwinInitializationSettings initializationSettingsIOS =
+//   DarwinInitializationSettings(
+//     requestSoundPermission: false,
+//     requestBadgePermission: false,
+//     requestAlertPermission: false,
+//   );
+//
+//   const InitializationSettings initializationSettings = InitializationSettings(
+//     android: initializationSettingsAndroid,
+//     iOS: initializationSettingsIOS,
+//   );
+//
+//   await flutterLocalNotificationsPlugin.initialize(
+//     initializationSettings,
+//     onDidReceiveNotificationResponse: (NotificationResponse response) {
+//       // التعامل مع النقر على الإشعار
+//       print('Notification clicked: ${response.payload}');
+//     },
+//   );
+// }
 
 
 

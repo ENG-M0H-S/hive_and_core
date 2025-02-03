@@ -1,10 +1,9 @@
 import 'package:hive/hive.dart';
-
 import 'CourseModel.dart';
 
 class CourseModelAdapter extends TypeAdapter<CourseModel> {
   @override
-  final int typeId = 0; // Unique typeId for Hive
+  final int typeId = 0; // يجب أن يتطابق مع typeId في CourseModel
 
   @override
   CourseModel read(BinaryReader reader) {
@@ -15,16 +14,18 @@ class CourseModelAdapter extends TypeAdapter<CourseModel> {
       overview: reader.read(),
       photo: reader.read(),
       createdAt: reader.read(),
+      isSynced: reader.read(), // إضافة هذا الحقل
     );
   }
 
   @override
-  void write(BinaryWriter writer, CourseModel humed) {
-    writer.write(humed.id);
-    writer.write(humed.title);
-    writer.write(humed.subject);
-    writer.write(humed.overview);
-    writer.write(humed.photo);
-    writer.write(humed.createdAt);
+  void write(BinaryWriter writer, CourseModel obj) {
+    writer.write(obj.id);
+    writer.write(obj.title);
+    writer.write(obj.subject);
+    writer.write(obj.overview);
+    writer.write(obj.photo);
+    writer.write(obj.createdAt);
+    writer.write(obj.isSynced); // إضافة هذا الحقل
   }
 }

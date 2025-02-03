@@ -344,12 +344,9 @@ class CoursesPage extends StatelessWidget {
               photo: courseImage.value,
             );
           } else {
-            _controller.updateCourse(
-              course.id,
-              title: titleController.text,
-              overview: overviewController.text,
-              subject: selectedSubject,
-              photo: courseImage.value,
+            _controller.updateCourse(CourseModel(id: course.id, title: titleController.text, subject: selectedSubject, overview: overviewController.text, createdAt: '')
+
+
             );
           }
           Get.back();
